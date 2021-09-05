@@ -14,7 +14,9 @@ function App() {
           uid: user.uid,
           updateProfile: (args) => user.updateProfile(args),
         });
-      } 
+      } else {
+        setUserObj(null);
+      }
       setIsInit(true);
     })
   }, [])
@@ -31,7 +33,7 @@ function App() {
   return (
     <>
       {isInit ? <AppRouter refreshUser={refreshUser} isLoggedIn={Boolean(userObj)} userObj={userObj}/> : "Initializing..."}
-      <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
+      <footer style={{ display: "flex", justifyContent: "center", marginTop: 50 }} >&copy; {new Date().getFullYear()} Lee Jung Geol</footer>
     </>
   );
 }
